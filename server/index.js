@@ -1,10 +1,18 @@
 const express = require('express');
 const app = express();
+const PORT = 3001;
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.get('/api', (req, res) => {
+  const data = {
+    name: 'John',
+    age: '30',
+    city: 'New York'
+  };
+
+  res.json(data);
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+// Запуск сервера
+app.listen(PORT, () => {
+  console.log(`Сервер запущен на порту ${PORT}`);
 });

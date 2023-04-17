@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function App() {
+const MyComponent = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    axios.get('/api') 
+      .then(response => setData(response.data))
+      .catch(error => console.error('Ошибка получения данных:', error));
+  }, []);
+
   return (
     <div>
-      <h1>Hello, World!</h1>
+      {data ? (
+        <div>
+          <h1>{data.name}</h1>
+          <p>{data.age}</p>
+          <p>{data.city}</p>
+        </div>
+      ) : (
+        <p>Загрузка данных...</p>
+      )}
     </div>
   );
-}
+};
 
-export default App;
+export default MyComponent;
