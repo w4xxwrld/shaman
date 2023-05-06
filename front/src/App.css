@@ -31,7 +31,7 @@ body{
 
 .content-container {
   width: 500px;
-  height: 350px;
+  height: 600px;
 }
 
 .form-container{
@@ -78,6 +78,10 @@ input {
 
   height: 35px;
   width: 300px;
+}
+
+input#passwd {
+  margin-bottom: 10px;
 }
 
 button:disabled{
